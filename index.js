@@ -1,12 +1,12 @@
-var request = require('request')
-var cheerio = require('cheerio')
-var find = require('cheerio-eq');
+
 
 const Crawlers = require('./Component/Crawlers')
+require('dotenv').config();
 
 
 let crawler = new Crawlers();
 
-crawler.getLinks('http://www.electrolux.com.co','.site-links .col:eq(0) ul li')
+let url = `${process.env.ENDPOINT}/Productos`
+crawler.getLinks(url,'.categories a')
 
 
